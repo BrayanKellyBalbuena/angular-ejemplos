@@ -1,0 +1,21 @@
+{
+  "name": "Angular",
+  "description": "Basic angular",
+  "main": "index.js",
+  "author": "Brayan Kelly",
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular":  "^1.6.8",
+    "angular-messages": "^1.6.8",
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0",
+    "angular-route": "^1.6.8"
+  } 
+}

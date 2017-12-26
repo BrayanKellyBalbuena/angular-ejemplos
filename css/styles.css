@@ -1,0 +1,24 @@
+body {
+    background-image: url("../images/background.jpg");
+    opacity: 0.9;
+}
+
+#formularioContenedor{
+    margin-top: 15%;
+}
+
+#formulario{
+    
+    border-radius: 5px;
+    box-shadow: 0px 0px 1em lightblue;
+    padding-bottom: 10px;
+    background-color: white;
+    
+}
+
+.errores span{
+    font-family: Courier New, Courier, monospace;
+    font-size: 12px;
+    color: red;
+}
+

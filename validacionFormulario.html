@@ -1,0 +1,92 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Valifdacion de Formularios con Angular Js</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js/"></script>
+</head>
+
+<body ng-app="validacion">
+    <div class="container-fuild">
+        <div id="formularioContenedor" class="row">
+            <div id="formulario" ng-controller="FormularioController" class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                <form name="formulario" action="#" method="POST">
+                    <fieldset></fieldset>
+                    <legend>
+                        <h2>Formulario Contacto</h2>
+                    </legend>
+                    <div ng-messages="formulario.nombre.$error" ng-class="{'errores': formulario.nombre.$touched && formulario.nombre.$invalid}"
+                         ng-if="formulario.nombre.$touched">
+                        <p ng-messages-include="templates/mensajeValidacion.html"></p>
+                    </div>
+                    <div  class="input-group" ng-class="{'has-error': formulario.nombre.$touched && formulario.nombre.$invalid,
+                     'has-success': formulario.nombre.$touched && formulario.nombre.$valid}">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user-circle fa-lg aria-hidden=" true ""></i>
+                        </span>
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby=""
+                            ng-model="nombre" ng-minlength="4" ng-maxlength="10" required="required" />
+                    </div>
+                    <br/>
+
+                    <div ng-messages="formulario.contrasena.$error"  ng-if="formulario.contrasena.$touched" 
+                        ng-class="{'errores': formulario.contrasena.$touched && formulario.contrasena.$invalid}">
+                        <div ng-messages-include="templates/mensajeValidacion.html"></div>
+                    </div>
+                    <div class="input-group" ng-class="{'has-error': formulario.contrasena.$touched && formulario.contrasena.$invalid,
+                    'has-success': formulario.contrasena.$touched && formulario.contrasena.$valid}">
+                        <span class="input-group-addon">
+                            <i class="fa fa-key fa-lg" aria-hidden="true"></i>
+                        </span>
+                        <input type="password" id="contrasena" name="contrasena" class="form-control" ng-model="contrasena" ng-minlength="4" required="required"
+                        />
+                    </div>
+                    <br/>
+
+                    <div ng-messages-multiple ng-messages="formulario.email.$error" ng-if="formulario.email.$touched"
+                        ng-class="{'errores': formulario.email.$touched && formulario.email.$invalid}">
+                        <div ng-messages-include="templates/mensajeValidacion.html"></div>
+                    </div>
+                    <div class="input-group" ng-class="{'has-error': formulario.email.$touched && formulario.email.$invalid,
+                        'has-success': formulario.email.$touched && formulario.email.$valid}">
+                        <span class="input-group-addon">
+                            <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                        </span>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="example@example.com" ng-model="email" required="required"
+                        />
+                    </div>
+                    <br/>
+
+                    <div ng-messages="formulario.telefono.$error" ng-if="formulario.telefono.$touched"
+                        ng-class="{'errores': formulario.telefono.$touched && formulario.telefono.$invalid}">
+                        <div ng-messages-include="templates/mensajeValidacion.html"></div>
+                    </div>
+                    <div class="input-group" ng-class="{'has-error': formulario.telefono.$touched && formulario.telefono.$invalid,
+                        'has-success': formulario.telefono.$touched && formulario.telefono.$valid}">
+                        <span class="input-group-addon">
+                            <i class="fa fa-phone fa-lg"></i>
+                        </span>
+                        <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="809-000-0000" ng-model="telefono" ng-pattern="/[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$/"
+                            required="required" />
+                    </div>
+                    <br/>
+                    <input ng-submit="" value="Enviar" class="btn btn-md btn-success" />
+                    </fieldset>
+                </form>
+            
+            </div>
+        </div>
+    </div>
+    <script src="js/modules/validacion.js"></script>
+    <script src="js/controllers/formularioController.js"></script>
+</body>
+
+</html>
