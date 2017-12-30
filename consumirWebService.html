@@ -35,14 +35,14 @@
                      style="box-shadow: 0px 0px 1em lightblue;">
                     <thead>
                         <tr>
-                            <th class="text-center">Nombre</th>
-                            <th class="text-center">Nombre de Usuario</th>
-                            <th class="text-center">Correo</th>
-                            <th class="text-center">Direccion</th>
+                            <th class="text-center" ng-click="orden = 'name'">Nombre</th>
+                            <th class="text-center" ng-click="orden = 'userName'">Nombre de Usuario</th>
+                            <th class="text-center" ng-click="orden = 'email'">Correo</th>
+                            <th class="text-center" ng-click="orden = 'address.street'">Direccion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="usuario in usuarios | filter : filtro ">
+                        <tr ng-repeat="usuario in usuarios | filter : filtro | orderBy: 'orden'">
                             <td>{{usuario.name}}</td>
                             <td>{{usuario.username}}</td>
                             <td>{{usuario.email}}</td>
